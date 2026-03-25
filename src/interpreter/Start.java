@@ -8,14 +8,13 @@ import java.io.IOException;
 
 public class Start {
     public static void main(String[] args) {
-        CharStream inp = null;
+        CharStream inp;
         try {
-            inp = CharStreams.fromFileName("we.first");
+            String fileName = args.length > 0 ? args[0] : "we.first";
+            inp = CharStreams.fromFileName(fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-//        CharStream inp = CharStreams.fromString("1+2*3-(4+5)","wejście");
-//        CharStream inp = CharStreams.fromStream(System.in);
 
         firstLexer lex = new firstLexer(inp);
         CommonTokenStream tokens = new CommonTokenStream(lex);
@@ -23,8 +22,7 @@ public class Start {
 
         ParseTree tree = par.prog();
 
-        CalculateVisitor v = new CalculateVisitor(inp,tokens);
-        Integer res = v.visit(tree);
-//        System.out.printf("Wynik: %d\n", res);
+        CalculateVisitor v = new CalculateVisitor(inp, tokens);
+        v.visit(tree);
     }
 }
