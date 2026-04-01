@@ -7,6 +7,8 @@ stat
     | IF_kw '(' cond=expr ')' then=block ('else' else=block)? #if_stat
     | '>' expr #print_stat
     | functionDef #function_def_stat
+    | 'int' ID #decl_stat
+    | 'int' ID '=' expr #decl_assign_stat
     ;
 
 functionDef

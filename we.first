@@ -5,12 +5,13 @@
 //x=7
 //5-x
 //3,4,5
-//if (1) 3 4
+//if (1) 3 else 4
 //if (0) 5 else 6
 //if (2-2) 7
 //5
 //if(5) if (6) 7 else 8
 
+/*
 Czesc(0)
 
 x = 10
@@ -24,3 +25,10 @@ a = x / 2
 > a
 def add(a, b) { a + b }
 > add(a, 8)
+*/
+
+int x
+int y
+x = 2
+y = 2
+((x + 4) / y + x) * 2

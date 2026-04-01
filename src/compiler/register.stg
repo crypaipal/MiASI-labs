@@ -20,6 +20,38 @@ dodaj(p1,p2) ::= <<
 ADD A,B
 >>
 
+odejmij(p1,p2) ::= <<
+<twoop(p1,p2)>
+SUB A,B
+>>
+
+pomnoz(p1,p2) ::= <<
+<twoop(p1,p2)>
+MUL A,B
+>>
+
+podziel(p1,p2) ::= <<
+<twoop(p1,p2)>
+DIV A,B
+>>
+
 dek(n) ::= <<
 DD <n>
+>>
+
+load(name) ::= <<
+MOV A,[<name>]
+>>
+
+store(name, value) ::= <<
+<value>
+MOV [<name>],A
+>>
+
+program(decls, body) ::= <<
+<decls; separator="\n">
+<body>
+>>
+
+noop() ::= <<
 >>

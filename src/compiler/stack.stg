@@ -18,6 +18,39 @@ dodaj(p1,p2) ::= <<
 ADD
 >>
 
+odejmij(p1,p2) ::= <<
+<twoop(p1,p2)>
+SUB
+>>
+
+pomnoz(p1,p2) ::= <<
+<twoop(p1,p2)>
+MUL
+>>
+
+podziel(p1,p2) ::= <<
+<twoop(p1,p2)>
+DIV
+>>
+
 dek(n) ::= <<
 DD <n>
+>>
+
+load(name) ::= <<
+PUSH [<name>]
+>>
+
+store(name, value) ::= <<
+<value>
+POP [<name>]
+PUSH [<name>]
+>>
+
+program(decls, body) ::= <<
+<decls; separator="\n">
+<body>
+>>
+
+noop() ::= <<
 >>
